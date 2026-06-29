@@ -20,8 +20,10 @@ POSTS_DIR.mkdir(exist_ok=True)
 # --- NVIDIA NIM (OpenAI-compatible) --------------------------------------
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "").strip()
-MODEL = os.getenv("NVIDIA_MODEL", "meta/llama-3.3-70b-instruct").strip()
-# A reasoning-grade model sharpens ranking + the quality gate. Falls back to MODEL.
+# DeepSeek V4 Pro won a live bake-off on writing quality + clean JSON. An empty
+# env var (e.g. an unset GitHub Variable) falls back to this, never to blank.
+MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "deepseek-ai/deepseek-v4-pro"
+# Used for ranking + the quality gate. Falls back to MODEL.
 MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or MODEL
 
 # --- Substack ------------------------------------------------------------
