@@ -50,5 +50,16 @@
       "https://openai.com/index/genebench-pro/case-studies"
     ],
     "published": false
+  },
+  {
+    "date": "2026-06-30",
+    "title": "Claude Code Is Secretly Watermarking Your Prompts, And It’s a Product Strategy, Not a Feature",
+    "topic": "Claude Code Is Secretly Watermarking Your Prompts — And It’s a Product Strategy, Not a Feature",
+    "urls": [
+      "https://thereallo.dev/blog/claude-code-prompt-steganography",
+      "https://www.anthropic.com/news/claude-sonnet-5",
+      "https://openai.com/index/how-chatgpt-adoption-has-expanded"
+    ],
+    "published": false
   }
 ]
