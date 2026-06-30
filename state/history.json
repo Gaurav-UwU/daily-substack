@@ -29,5 +29,15 @@
       "https://www.semianalysis.com/p/south-korea-ai-chip-strategy"
     ],
     "published": false
+  },
+  {
+    "date": "2026-06-30",
+    "title": "Herdr Isn’t an Agent Manager, It’s a Reclamation of the Terminal",
+    "topic": "Herdr: The Terminal Is the New UI for AI Agents (And Why This Changes Everything)",
+    "urls": [
+      "https://github.com/ogulcancelik/herdr",
+      "https://news.ycombinator.com/item?id=40800123"
+    ],
+    "published": false
   }
 ]
