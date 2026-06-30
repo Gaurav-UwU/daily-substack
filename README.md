@@ -15,8 +15,11 @@ An autonomous pipeline that, every day:
    the draft clears the quality threshold (configurable).
 7. **Remembers** what it wrote (commits `state/` back) and posts a run summary.
 
-The brain is **NVIDIA NIM** (OpenAI-compatible, free tier). The host is **GitHub
-Actions** on a daily cron. Nothing runs on your machine.
+The brain is **NVIDIA NIM** (OpenAI-compatible, free tier), model
+`qwen/qwen3-next-80b-a3b-instruct`. The host is **GitHub Actions** on a daily
+cron. Publishing goes through **Cloudflare WARP** for a trusted exit IP, since
+Substack's Cloudflare blocks GitHub's datacenter IPs. Nothing runs on your machine,
+and it costs nothing.
 
 ---
 
@@ -26,7 +29,7 @@ Actions** on a daily cron. Nothing runs on your machine.
 |---|---|
 | **agent-reach** | Multi-platform discovery. In headless CI it runs its zero-config channels: Exa web search and Jina web-to-markdown (the same upstreams agent-reach orchestrates). `sources.web_search` shells out to the `agent-reach` CLI when `AGENT_REACH_ENABLED=true` and it is installed, otherwise it calls those upstreams directly. |
 | **Scrapling** | Primary page fetcher in `sources.py` and `gather.github_trending`. Best at getting past anti-bot walls when pulling full article text for the writer. |
-| **Substack** | `python-substack` (unofficial). Draft-first, publish-on-pass. |
+| **Substack** | `python-substack` (unofficial). Draft-first, publish-on-pass. The publish call is routed through a **Cloudflare WARP** SOCKS proxy (set up in the workflow) so it reaches Substack from a trusted IP. |
 
 > **Honest constraint:** headless GitHub Actions has no browser cookies, so true
 > Twitter/X and LinkedIn scraping does not run in the cloud. The daily signal comes
