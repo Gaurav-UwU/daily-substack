@@ -13,6 +13,8 @@ lxml>=5.2.0
 
 # Substack publishing (unofficial)
 python-substack>=0.1.5
+# SOCKS support so requests can route the Substack call through the WARP proxy
+PySocks>=1.7.1
 
 # Utilities
 python-dotenv>=1.0.1

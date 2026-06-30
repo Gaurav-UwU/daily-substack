@@ -69,7 +69,38 @@ def _try_requests(article: dict[str, str], should_publish: bool) -> dict[str, An
                     "draft_url": None, "error": "direct Substack call timed out"}
 
 
+import contextlib
+
+
+@contextlib.contextmanager
+def _warp_env():
+    """Temporarily route requests (python-substack) through the WARP SOCKS proxy."""
+    warp = config.WARP_PROXY
+    if not warp:
+        yield
+        return
+    import os
+    keys = ("ALL_PROXY", "all_proxy", "HTTPS_PROXY", "https_proxy", "HTTP_PROXY", "http_proxy")
+    saved = {k: os.environ.get(k) for k in keys}
+    for k in keys:
+        os.environ[k] = warp
+    print("  [publish] routing Substack through WARP proxy")
+    try:
+        yield
+    finally:
+        for k, v in saved.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+
+
 def _do_push(article: dict[str, str], should_publish: bool) -> dict[str, Any]:
+    with _warp_env():
+        return _do_push_inner(article, should_publish)
+
+
+def _do_push_inner(article: dict[str, str], should_publish: bool) -> dict[str, Any]:
     from substack.post import Post
 
     try:

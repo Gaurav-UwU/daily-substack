@@ -30,6 +30,7 @@ jobs:
     timeout-minutes: 30
     env:
       PYTHONUNBUFFERED: "1"
+      WARP_PROXY: "socks5h://127.0.0.1:40000"
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
       NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
       NVIDIA_MODEL_REASON: ${{ vars.NVIDIA_MODEL_REASON }}
@@ -61,6 +62,23 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq xvfb
           python -m camoufox fetch
+
+      - name: Set up Cloudflare WARP (free trusted exit IP for publishing)
+        continue-on-error: true
+        run: |
+          curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq cloudflare-warp
+          sudo systemctl start warp-svc || sudo nohup warp-svc >/tmp/warp-svc.log 2>&1 &
+          sleep 6
+          warp-cli --accept-tos registration new || warp-cli --accept-tos register || true
+          warp-cli --accept-tos mode proxy || warp-cli --accept-tos set-mode proxy || true
+          warp-cli --accept-tos connect || true
+          sleep 12
+          warp-cli --accept-tos status || true
+          echo "=== WARP trace (want warp=on + a non-Azure IP) ==="
+          curl -s -x socks5h://127.0.0.1:40000 https://www.cloudflare.com/cdn-cgi/trace || echo "WARP socks proxy not responding"
 
       - name: Run the daily agent
         run: python -u run.py

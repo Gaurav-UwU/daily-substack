@@ -44,6 +44,9 @@ DRY_RUN = os.getenv("DRY_RUN", "false").strip().lower() in ("1", "true", "yes")
 # --- Optional boosters ---------------------------------------------------
 EXA_API_KEY = os.getenv("EXA_API_KEY", "").strip()
 NOTIFY_WEBHOOK = os.getenv("NOTIFY_WEBHOOK", "").strip()
+# SOCKS proxy for the Substack call only (e.g. Cloudflare WARP at
+# socks5h://127.0.0.1:40000) to get a trusted exit IP past Cloudflare.
+WARP_PROXY = os.getenv("WARP_PROXY", "").strip()
 AGENT_REACH_ENABLED = os.getenv("AGENT_REACH_ENABLED", "false").strip().lower() in ("1", "true", "yes")
 
 # --- Niche: AI x Product -------------------------------------------------
