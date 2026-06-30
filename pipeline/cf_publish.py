@@ -94,6 +94,31 @@ async (args) => {
 """
 
 
+def _attempt(Camoufox, mode, geoip, cookies, pub_root, payload_json, should_publish):
+    """One browser attempt: solve the Cloudflare challenge, then POST from the page."""
+    with Camoufox(headless=mode, geoip=geoip, humanize=True) as browser:
+        page = browser.new_page(no_viewport=True)
+        page.context.add_cookies(cookies)
+        # A full navigation to the API host lets Camoufox SOLVE the Cloudflare
+        # challenge (a fetch cannot), which issues cf_clearance for the host.
+        page.goto(pub_root + "/api/v1/drafts",
+                  wait_until="domcontentloaded", timeout=60000)
+        for _ in range(25):
+            t = (page.title() or "").lower()
+            if "just a moment" not in t and "attention required" not in t:
+                break
+            page.wait_for_timeout(2000)
+        cf = [c for c in page.context.cookies() if c["name"] == "cf_clearance"]
+        print(f"  [cf] cf_clearance={'yes' if cf else 'NO'} title={page.title()!r}")
+        if not cf:
+            raise RuntimeError("challenge not solved (no cf_clearance cookie)")
+        # Back to an HTML page for a clean JS context, then POST.
+        page.goto(pub_root, wait_until="domcontentloaded", timeout=60000)
+        page.wait_for_timeout(1500)
+        return page.evaluate(_JS, {"payloadJson": payload_json,
+                                   "shouldPublish": should_publish})
+
+
 def browser_push(article: dict[str, str], *, should_publish: bool) -> dict[str, Any]:
     """Create the draft (and optionally publish) via a stealth browser."""
     cookie_str = config.SUBSTACK_COOKIES_STRING
@@ -119,43 +144,23 @@ def browser_push(article: dict[str, str], *, should_publish: bool) -> dict[str, 
     cookies = _browser_cookies(cookie_str)
     result = None
     last_err = None
-    # geoip=True is stealthier but needs the extra db; fall back without it.
-    for geoip in (True, False):
+    # (headless_mode, geoip). "virtual" renders via Xvfb, evading Cloudflare's
+    # headless detection far better than headless=True.
+    for mode, geoip in (("virtual", True), (True, True), (True, False)):
         try:
-            print(f"  [cf] launching stealth browser (geoip={geoip})...")
-            with Camoufox(headless=True, geoip=geoip, humanize=False) as browser:
-                # no_viewport: Camoufox manages its own spoofed screen; setting a
-                # fixed viewport triggers a setDefaultViewport protocol error.
-                page = browser.new_page(no_viewport=True)
-                page.context.add_cookies(cookies)
-                # Navigate to the API path itself so Cloudflare issues a challenge
-                # we can SOLVE via a full navigation (a fetch cannot solve one).
-                # This grants cf_clearance for the host, which the POST then carries.
-                page.goto(pub_root + "/api/v1/drafts",
-                          wait_until="domcontentloaded", timeout=60000)
-                # Wait for the Cloudflare interstitial to clear.
-                for _ in range(25):
-                    title = (page.title() or "").lower()
-                    if "just a moment" not in title and "attention required" not in title:
-                        break
-                    page.wait_for_timeout(1500)
-                page.wait_for_timeout(3000)
-                # Back to an HTML page (cf_clearance is now set) for a clean JS
-                # context to run the fetch from.
-                page.goto(pub_root, wait_until="domcontentloaded", timeout=60000)
-                page.wait_for_timeout(1500)
-                print("  [cf] challenge cleared, calling Substack API...")
-                result = page.evaluate(_JS, {"payloadJson": payload_json,
-                                             "shouldPublish": should_publish})
-            break
+            print(f"  [cf] launching Camoufox (headless={mode!r}, geoip={geoip})...")
+            result = _attempt(Camoufox, mode, geoip, cookies, pub_root,
+                              payload_json, should_publish)
+            if result and result.get("ok"):
+                break
+            last_err = f"api result: {json.dumps(result)[:200]}"
+            print(f"  [cf] {last_err}")
         except Exception as e:
             last_err = f"{type(e).__name__}: {e}"
-            print(f"  [cf] attempt with geoip={geoip} failed: {last_err}")
+            print(f"  [cf] attempt failed: {last_err}")
 
-    if result is None:
-        return _err(f"browser flow failed: {last_err}")
-    if not result.get("ok"):
-        return _err(f"substack api via browser failed: {json.dumps(result)[:300]}")
+    if not (result and result.get("ok")):
+        return _err(f"cf bypass failed: {last_err}")
 
     draft_id = result.get("id")
     return {
