@@ -8,5 +8,15 @@
       "https://www.lennysnewsletter.com/p/how-i-ai-glm-52-review-and-how-gusto"
     ],
     "published": false
+  },
+  {
+    "date": "2026-06-30",
+    "title": "Ornith-1.0 Isn't an Agent, It's a Self-Modifying Compiler",
+    "topic": "Ornith-1.0: The First Open-Source AI That Writes Its Own Better Code (And Why It Breaks the Agentic Product Model)",
+    "urls": [
+      "https://github.com/deepreinforce-ai/Ornith-1",
+      "https://deep-reinforce.com/ornith_1_0.html"
+    ],
+    "published": false
   }
 ]
