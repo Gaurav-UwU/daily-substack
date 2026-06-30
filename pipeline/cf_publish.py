@@ -128,14 +128,22 @@ def browser_push(article: dict[str, str], *, should_publish: bool) -> dict[str, 
                 # fixed viewport triggers a setDefaultViewport protocol error.
                 page = browser.new_page(no_viewport=True)
                 page.context.add_cookies(cookies)
-                page.goto(pub_root, wait_until="domcontentloaded", timeout=60000)
+                # Navigate to the API path itself so Cloudflare issues a challenge
+                # we can SOLVE via a full navigation (a fetch cannot solve one).
+                # This grants cf_clearance for the host, which the POST then carries.
+                page.goto(pub_root + "/api/v1/drafts",
+                          wait_until="domcontentloaded", timeout=60000)
                 # Wait for the Cloudflare interstitial to clear.
-                for _ in range(20):
+                for _ in range(25):
                     title = (page.title() or "").lower()
                     if "just a moment" not in title and "attention required" not in title:
                         break
                     page.wait_for_timeout(1500)
-                page.wait_for_timeout(2500)
+                page.wait_for_timeout(3000)
+                # Back to an HTML page (cf_clearance is now set) for a clean JS
+                # context to run the fetch from.
+                page.goto(pub_root, wait_until="domcontentloaded", timeout=60000)
+                page.wait_for_timeout(1500)
                 print("  [cf] challenge cleared, calling Substack API...")
                 result = page.evaluate(_JS, {"payloadJson": payload_json,
                                              "shouldPublish": should_publish})
