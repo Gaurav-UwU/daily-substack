@@ -13,11 +13,13 @@ SYSTEM = (
 )
 
 
-def evaluate(article: dict[str, str], topic: dict[str, Any]) -> dict[str, Any]:
+def evaluate(article: dict[str, str], topic: dict[str, Any], context: str = "") -> dict[str, Any]:
     # 1. Hard programmatic checks first. Any violation = automatic hold.
     violations = write.style_violations(article)
 
-    # 2. LLM rubric score.
+    source_block = (context or "(no source text was captured)")[:9000]
+
+    # 2. LLM rubric score, grounded in the SOURCES the writer actually used.
     user = f"""Evaluate this draft for publication.
 
 TITLE: {article['title']}
@@ -27,21 +29,32 @@ ANGLE IT WAS MEANT TO HIT: {topic.get('angle','')}
 BODY:
 {article['body_markdown']}
 
+SOURCE MATERIAL THE WRITER USED (verify factual claims against THIS, not your memory):
+---
+{source_block}
+---
+
 Score each criterion 0-100, then give an overall weighted score.
 Criteria:
 - originality: is the take non-obvious, or is it a generic news recap?
 - specificity: concrete examples, names, numbers vs vague hand-waving?
 - voice: confident, sharp, first-principles, opinionated?
 - structure: strong hook, clear through-line, memorable ending?
-- credibility: any claim that looks fabricated, overreaching, or unsupported?
+- credibility: are the specifics supported by the SOURCE MATERIAL above?
 - reader_value: would a PM/founder be glad they read it?
+
+IMPORTANT on credibility: judge fabrication ONLY against the source material.
+Recent product names, model names, or companies may be unfamiliar to you or
+postdate your training. That is NOT fabrication if they appear in the sources.
+Only set hard_fail for a factual claim that contradicts the sources, is absent
+from them and presented as hard fact, or reads as spam / off-topic.
 
 Return ONLY JSON:
 {{
   "scores": {{"originality": <int>, "specificity": <int>, "voice": <int>,
               "structure": <int>, "credibility": <int>, "reader_value": <int>}},
   "overall": <int 0-100>,
-  "hard_fail": <true if any claim looks fabricated or it reads as spam/off-topic>,
+  "hard_fail": <bool>,
   "reasons": "<2-3 sentences of honest critique>",
   "fixes": ["<the 1-3 edits that would most improve it>"]
 }}"""

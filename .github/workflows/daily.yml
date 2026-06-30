@@ -27,8 +27,9 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
+      PYTHONUNBUFFERED: "1"
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
       NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
       NVIDIA_MODEL_REASON: ${{ vars.NVIDIA_MODEL_REASON }}
@@ -57,7 +58,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run the daily agent
-        run: python run.py
+        run: python -u run.py
 
       - name: Commit dedupe history + archived post
         if: always()

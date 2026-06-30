@@ -33,11 +33,22 @@ def _draft_url(draft_id: Any) -> str:
 
 
 def push(article: dict[str, str], *, should_publish: bool) -> dict[str, Any]:
-    """Create the draft and optionally publish. Returns a result dict."""
+    """Create the draft and optionally publish, with a hard timeout guard."""
     if config.DRY_RUN:
         return {"dry_run": True, "published": False, "draft_id": None,
                 "draft_url": None, "error": None}
 
+    import concurrent.futures
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
+        future = ex.submit(_do_push, article, should_publish)
+        try:
+            return future.result(timeout=150)
+        except concurrent.futures.TimeoutError:
+            return {"dry_run": False, "published": False, "draft_id": None,
+                    "draft_url": None, "error": "Substack call timed out after 150s"}
+
+
+def _do_push(article: dict[str, str], should_publish: bool) -> dict[str, Any]:
     from substack.post import Post
 
     try:

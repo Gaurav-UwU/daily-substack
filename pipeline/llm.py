@@ -23,7 +23,14 @@ def client() -> OpenAI:
     if _client is None:
         if not config.NVIDIA_API_KEY:
             raise RuntimeError("NVIDIA_API_KEY is not set")
-        _client = OpenAI(base_url=config.NVIDIA_BASE_URL, api_key=config.NVIDIA_API_KEY)
+        # Per-request timeout so a stalled endpoint fails fast instead of
+        # eating the whole CI budget. tenacity handles the retries.
+        _client = OpenAI(
+            base_url=config.NVIDIA_BASE_URL,
+            api_key=config.NVIDIA_API_KEY,
+            timeout=240.0,
+            max_retries=0,
+        )
     return _client
 
 
@@ -71,15 +78,24 @@ def chat_json(
     temperature: float = 0.4,
     max_tokens: int = 2048,
 ) -> Any:
-    """Call the model and parse a JSON object/array out of the reply."""
-    raw = chat(
-        messages,
-        model=model,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        json_mode=True,
-    )
-    return _extract_json(raw)
+    """Call the model and parse a JSON object/array out of the reply.
+
+    We do NOT use response_format=json_object: several NVIDIA-hosted models
+    (notably reasoning models) return empty content under it. Instead we ask
+    for JSON in the prompt, extract robustly, and retry once on failure.
+    """
+    raw = chat(messages, model=model, temperature=temperature, max_tokens=max_tokens)
+    if raw.strip():
+        try:
+            return _extract_json(raw)
+        except ValueError:
+            pass
+    nudge = messages + [{
+        "role": "user",
+        "content": "Output ONLY the JSON object. No explanation, no markdown fences, no preamble.",
+    }]
+    raw2 = chat(nudge, model=model, temperature=0.2, max_tokens=max_tokens)
+    return _extract_json(raw2)
 
 
 def _extract_json(text: str) -> Any:

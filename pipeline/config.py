@@ -20,11 +20,15 @@ POSTS_DIR.mkdir(exist_ok=True)
 # --- NVIDIA NIM (OpenAI-compatible) --------------------------------------
 NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "").strip()
-# DeepSeek V4 Pro won a live bake-off on writing quality + clean JSON. An empty
-# env var (e.g. an unset GitHub Variable) falls back to this, never to blank.
-MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "deepseek-ai/deepseek-v4-pro"
-# Used for ranking + the quality gate. Falls back to MODEL.
-MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or MODEL
+# Model picks from a live bake-off (speed + quality on the free tier).
+# Writer: qwen3-next-80b-a3b (best prose, ~17s/essay). DeepSeek V4 Pro had the
+# best prose but times out on the free tier's low throughput, so it is unusable
+# for a timed job. An empty env var falls back here, never to blank.
+MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
+# Judge for ranking + the quality gate. qwen3-next is a plain instruct model
+# that returns clean JSON reliably; gpt-oss-120b reasons into a hidden channel
+# and returned empty content on the complex ranking prompt.
+MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
 
 # --- Substack ------------------------------------------------------------
 SUBSTACK_PUBLICATION_URL = os.getenv("SUBSTACK_PUBLICATION_URL", "").strip()

@@ -67,6 +67,14 @@ def main() -> int:
                      "gate": {}, "publish": {}})
         return 0
 
+    # Hard de-dup: drop anything whose source URL we have already written about.
+    history = state.load_history()
+    seen_urls = {u for h in history for u in h.get("urls", [])}
+    fresh = [c for c in candidates if c.get("url") not in seen_urls]
+    if fresh:
+        candidates = fresh
+        print(f"  after history de-dup: {len(candidates)} candidates")
+
     # 2. Rank / pick
     topic = rank.pick_topic(candidates)
     print(f"\nChosen topic: {topic['working_title']}")
@@ -77,7 +85,6 @@ def main() -> int:
                      "gate": {}, "publish": {}})
         return 0
 
-    history = state.load_history()
     if state.is_dup(topic["working_title"], history):
         print("NOTE: topic looks similar to a recent post; continuing anyway.")
 
@@ -94,7 +101,7 @@ def main() -> int:
 
     # 5. Quality gate
     print("\nQuality gate...")
-    gate = quality_gate.evaluate(article, topic)
+    gate = quality_gate.evaluate(article, topic, context)
     print(f"  score={gate['overall']}/{gate['threshold']}  passed={gate['passed']}")
     if gate.get("violations"):
         print(f"  violations: {gate['violations']}")
