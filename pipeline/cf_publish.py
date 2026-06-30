@@ -124,7 +124,9 @@ def browser_push(article: dict[str, str], *, should_publish: bool) -> dict[str, 
         try:
             print(f"  [cf] launching stealth browser (geoip={geoip})...")
             with Camoufox(headless=True, geoip=geoip, humanize=False) as browser:
-                page = browser.new_page()
+                # no_viewport: Camoufox manages its own spoofed screen; setting a
+                # fixed viewport triggers a setDefaultViewport protocol error.
+                page = browser.new_page(no_viewport=True)
                 page.context.add_cookies(cookies)
                 page.goto(pub_root, wait_until="domcontentloaded", timeout=60000)
                 # Wait for the Cloudflare interstitial to clear.
