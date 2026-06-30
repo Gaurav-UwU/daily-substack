@@ -3,6 +3,9 @@ openai>=1.30.0
 
 # Scraping / fetching
 scrapling>=0.2.9
+# Camoufox stealth browser (same engine Scrapling uses) for the Cloudflare
+# bypass when publishing to Substack from a datacenter IP.
+camoufox[geoip]>=0.4.0
 httpx>=0.27.0
 feedparser>=6.0.11
 beautifulsoup4>=4.12.0

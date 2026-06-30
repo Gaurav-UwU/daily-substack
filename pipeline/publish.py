@@ -33,19 +33,40 @@ def _draft_url(draft_id: Any) -> str:
 
 
 def push(article: dict[str, str], *, should_publish: bool) -> dict[str, Any]:
-    """Create the draft and optionally publish, with a hard timeout guard."""
+    """Create the draft and optionally publish.
+
+    Tries the direct API first. If Cloudflare blocks it (the normal case on
+    GitHub's datacenter IPs), falls back to the stealth-browser bypass.
+    """
     if config.DRY_RUN:
         return {"dry_run": True, "published": False, "draft_id": None,
                 "draft_url": None, "error": None}
 
+    result = _try_requests(article, should_publish)
+    if result.get("error") and _is_cloudflare(result["error"]):
+        print("  [publish] direct call blocked by Cloudflare; using stealth bypass...")
+        from . import cf_publish
+        return cf_publish.browser_push(article, should_publish=should_publish)
+    return result
+
+
+def _is_cloudflare(err: str) -> bool:
+    e = (err or "").lower()
+    return any(s in e for s in (
+        "just a moment", "cloudflare", "attention required",
+        "enable javascript", "403", "challenge",
+    ))
+
+
+def _try_requests(article: dict[str, str], should_publish: bool) -> dict[str, Any]:
     import concurrent.futures
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as ex:
         future = ex.submit(_do_push, article, should_publish)
         try:
-            return future.result(timeout=150)
+            return future.result(timeout=120)
         except concurrent.futures.TimeoutError:
             return {"dry_run": False, "published": False, "draft_id": None,
-                    "draft_url": None, "error": "Substack call timed out after 150s"}
+                    "draft_url": None, "error": "direct Substack call timed out"}
 
 
 def _do_push(article: dict[str, str], should_publish: bool) -> dict[str, Any]:

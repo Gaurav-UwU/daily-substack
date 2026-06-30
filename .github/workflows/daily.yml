@@ -57,6 +57,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Fetch Camoufox stealth browser (Cloudflare bypass for publishing)
+        run: python -m camoufox fetch
+
       - name: Run the daily agent
         run: python -u run.py
 

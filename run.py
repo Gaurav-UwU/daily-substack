@@ -96,6 +96,7 @@ def main() -> int:
     # 4. Write
     print("\nWriting draft...")
     article = write.write_article(topic, context)
+    article = write.proofread(article)
     words = len(article["body_markdown"].split())
     print(f"  '{article['title']}' ({words} words)")
 
