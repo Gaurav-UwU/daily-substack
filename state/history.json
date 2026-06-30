@@ -72,5 +72,16 @@
       "https://huggingface.co/blog/ibm-research/scarfbench"
     ],
     "published": true
+  },
+  {
+    "date": "2026-06-30",
+    "title": "LLMs Don’t Think, They Reverse-Engineer Consciousness",
+    "topic": "LLMs Don’t Think—They Reverse-Engineer Consciousness: Why This Changes Everything for AI Product Design",
+    "urls": [
+      "https://ranpara.net/posts/words-are-a-byproduct-of-consciousness/",
+      "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
+      "https://blog.bytebytego.com/p/how-ai-agents-manage-memory-and-avoid"
+    ],
+    "published": false
   }
 ]
