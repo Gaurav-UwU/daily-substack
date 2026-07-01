@@ -83,5 +83,16 @@
       "https://blog.bytebytego.com/p/how-ai-agents-manage-memory-and-avoid"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-01",
+    "title": "Claude Fable 5 Was Never Supposed to Be the Fastest",
+    "topic": "The Export Control Flip: Why Anthropic’s Claude Fable 5 Lifted Restrictions Is a Silent Product Strategy Win",
+    "urls": [
+      "https://twitter.com/AnthropicAI/status/2072106151890809341",
+      "https://www.commerce.gov/news/press-releases/2026/06/department-commerce-lifts-export-controls-claude-fable-5-and-mythos-5",
+      "https://www.theverge.com/2026/6/28/24192877/anthropic-claude-fable-5-export-controls-lifted-ai-regulation"
+    ],
+    "published": false
   }
 ]
