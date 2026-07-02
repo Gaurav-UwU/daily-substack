@@ -94,5 +94,16 @@
       "https://www.theverge.com/2026/6/28/24192877/anthropic-claude-fable-5-export-controls-lifted-ai-regulation"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-02",
+    "title": "Cursor on iOS Didn’t Just Install, It Rewired Your Privacy Settings (And No One Noticed)",
+    "topic": "Cursor on iOS Didn’t Just Install—It Rewired Your Privacy Settings (And No One Noticed)",
+    "urls": [
+      "https://news.ycombinator.com/item?id=48737226",
+      "https://cursor.com",
+      "https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy"
+    ],
+    "published": true
   }
 ]
