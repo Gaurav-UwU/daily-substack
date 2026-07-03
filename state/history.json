@@ -105,5 +105,16 @@
       "https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-03",
+    "title": "Senior SWE-Bench Isn’t Measuring AI Agents, It’s Exposing the Lie of AI Engineering",
+    "topic": "Senior SWE-Bench Isn’t Measuring AI Agents—It’s Exposing the Lie of AI Engineering",
+    "urls": [
+      "https://senior-swe-bench.snorkel.ai/",
+      "https://news.ycombinator.com/item?id=48768900",
+      "https://arxiv.org/abs/2607.01242"
+    ],
+    "published": false
   }
 ]
