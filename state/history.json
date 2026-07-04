@@ -116,5 +116,16 @@
       "https://arxiv.org/abs/2607.01242"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-04",
+    "title": "Manufact’s MCP Cloud Isn’t an Agent Tool, It’s the OS for AI Workflows",
+    "topic": "Manufact (YC S25) Just Launched MCP Cloud — And It’s the First Real Productization of the Agent Protocol",
+    "urls": [
+      "https://manufact.com",
+      "https://github.com/manufact-ai/mcp-spec",
+      "https://news.ycombinator.com/item?id=48771515"
+    ],
+    "published": true
   }
 ]
