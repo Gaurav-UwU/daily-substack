@@ -127,5 +127,16 @@
       "https://news.ycombinator.com/item?id=48771515"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-05",
+    "title": "Claude’s System Prompts Are the New API Keys, And Everyone’s Leaking Them",
+    "topic": "Claude’s System Prompts Are the New API Keys — And Everyone’s Leaking Them",
+    "urls": [
+      "https://github.com/asgeirtj/system_prompts_leaks",
+      "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "https://openai.com/index/inside-gpt-5-5/"
+    ],
+    "published": true
   }
 ]
