@@ -138,5 +138,16 @@
       "https://openai.com/index/inside-gpt-5-5/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Zuckerberg’s AI Agent Pause: The Quiet Strategic Retreat That Reveals the Real Product War",
+    "topic": "Zuckerberg’s AI Agent Pause: The Quiet Strategic Retreat That Reveals the Real Product War",
+    "urls": [
+      "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "https://www.producthunt.com/products/mozaik-4",
+      "https://www.producthunt.com/products/codemote-remote-control-for-any-ai"
+    ],
+    "published": false
   }
 ]
