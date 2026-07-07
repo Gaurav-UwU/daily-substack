@@ -149,5 +149,16 @@
       "https://www.producthunt.com/products/codemote-remote-control-for-any-ai"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-07",
+    "title": "The Log Is the Agent: Why Your AI’s Behavior Is Written in Its Trace, Not Its Prompt",
+    "topic": "The Log Is the Agent: Why AI Autonomy Is Now a Logging Problem, Not a Coding One",
+    "urls": [
+      "https://arxiv.org/abs/2605.21997",
+      "https://www.anthropic.com/research/global-workspace",
+      "https://www.kapa.ai/blog/how-we-prune-rag-context"
+    ],
+    "published": true
   }
 ]
