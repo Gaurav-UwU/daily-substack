@@ -160,5 +160,16 @@
       "https://www.kapa.ai/blog/how-we-prune-rag-context"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-08",
+    "title": "Microsoft’s 42% Price Hike Isn’t an AI Tax, It’s a Strategic Bet on Agent-Driven Product Lock-In",
+    "topic": "Microsoft’s 42% Price Hike Isn’t an AI Tax—It’s a Strategic Bet on Agent-Driven Product Lock-In",
+    "urls": [
+      "https://www.windowslatest.com/2026/07/05/microsoft-365-just-got-a-price-hike-over-continuous-innovation-but-copilot-is-the-ai-tax-on-businesses/",
+      "https://github.com/iOfficeAI/OfficeCLI",
+      "https://www.microsoft.com/en-us/microsoft-365/roadmap"
+    ],
+    "published": true
   }
 ]
