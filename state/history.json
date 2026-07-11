@@ -171,5 +171,16 @@
       "https://www.microsoft.com/en-us/microsoft-365/roadmap"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-11",
+    "title": "GPT-5.6 Sol Didn't Just Win a Benchmark, It Redefined What Product Excellence Looks Like",
+    "topic": "GPT-5.6 Sol Crushed Claude Fable on Prototypes — And OpenAI Just Rewrote the Rules of AI Product Benchmarking",
+    "urls": [
+      "https://www.lennysnewsletter.com/p/gpt-56-sol-vs-claude-fable-why-openais",
+      "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+      "https://openai.com/index/gpt-5-6"
+    ],
+    "published": false
   }
 ]
