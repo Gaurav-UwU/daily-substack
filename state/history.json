@@ -182,5 +182,15 @@
       "https://openai.com/index/gpt-5-6"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-12",
+    "title": "Deutsche Telekom Isn’t Using AI to Improve Customer Service, It’s Rewiring Its Entire Organizational OS",
+    "topic": "Deutsche Telekom Isn’t Using AI to Improve Customer Service—It’s Rewiring Its Entire Organizational OS",
+    "urls": [
+      "https://openai.com/index/deutsche-telekom",
+      "https://www.telekom.com/en/media/media-releases/deutsche-telekom-and-openai-join-forces-to-transform-customer-service-with-ai-1122786"
+    ],
+    "published": true
   }
 ]
