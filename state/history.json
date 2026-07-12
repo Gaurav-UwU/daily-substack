@@ -72,5 +72,115 @@
       "https://huggingface.co/blog/ibm-research/scarfbench"
     ],
     "published": true
+  },
+  {
+    "date": "2026-06-30",
+    "title": "LLMs Don’t Think, They Reverse-Engineer Consciousness",
+    "topic": "LLMs Don’t Think—They Reverse-Engineer Consciousness: Why This Changes Everything for AI Product Design",
+    "urls": [
+      "https://ranpara.net/posts/words-are-a-byproduct-of-consciousness/",
+      "https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage",
+      "https://blog.bytebytego.com/p/how-ai-agents-manage-memory-and-avoid"
+    ],
+    "published": false
+  },
+  {
+    "date": "2026-07-01",
+    "title": "Claude Fable 5 Was Never Supposed to Be the Fastest",
+    "topic": "The Export Control Flip: Why Anthropic’s Claude Fable 5 Lifted Restrictions Is a Silent Product Strategy Win",
+    "urls": [
+      "https://twitter.com/AnthropicAI/status/2072106151890809341",
+      "https://www.commerce.gov/news/press-releases/2026/06/department-commerce-lifts-export-controls-claude-fable-5-and-mythos-5",
+      "https://www.theverge.com/2026/6/28/24192877/anthropic-claude-fable-5-export-controls-lifted-ai-regulation"
+    ],
+    "published": false
+  },
+  {
+    "date": "2026-07-02",
+    "title": "Cursor on iOS Didn’t Just Install, It Rewired Your Privacy Settings (And No One Noticed)",
+    "topic": "Cursor on iOS Didn’t Just Install—It Rewired Your Privacy Settings (And No One Noticed)",
+    "urls": [
+      "https://news.ycombinator.com/item?id=48737226",
+      "https://cursor.com",
+      "https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy"
+    ],
+    "published": true
+  },
+  {
+    "date": "2026-07-03",
+    "title": "Senior SWE-Bench Isn’t Measuring AI Agents, It’s Exposing the Lie of AI Engineering",
+    "topic": "Senior SWE-Bench Isn’t Measuring AI Agents—It’s Exposing the Lie of AI Engineering",
+    "urls": [
+      "https://senior-swe-bench.snorkel.ai/",
+      "https://news.ycombinator.com/item?id=48768900",
+      "https://arxiv.org/abs/2607.01242"
+    ],
+    "published": false
+  },
+  {
+    "date": "2026-07-04",
+    "title": "Manufact’s MCP Cloud Isn’t an Agent Tool, It’s the OS for AI Workflows",
+    "topic": "Manufact (YC S25) Just Launched MCP Cloud — And It’s the First Real Productization of the Agent Protocol",
+    "urls": [
+      "https://manufact.com",
+      "https://github.com/manufact-ai/mcp-spec",
+      "https://news.ycombinator.com/item?id=48771515"
+    ],
+    "published": true
+  },
+  {
+    "date": "2026-07-05",
+    "title": "Claude’s System Prompts Are the New API Keys, And Everyone’s Leaking Them",
+    "topic": "Claude’s System Prompts Are the New API Keys — And Everyone’s Leaking Them",
+    "urls": [
+      "https://github.com/asgeirtj/system_prompts_leaks",
+      "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "https://openai.com/index/inside-gpt-5-5/"
+    ],
+    "published": true
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Zuckerberg’s AI Agent Pause: The Quiet Strategic Retreat That Reveals the Real Product War",
+    "topic": "Zuckerberg’s AI Agent Pause: The Quiet Strategic Retreat That Reveals the Real Product War",
+    "urls": [
+      "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+      "https://www.producthunt.com/products/mozaik-4",
+      "https://www.producthunt.com/products/codemote-remote-control-for-any-ai"
+    ],
+    "published": false
+  },
+  {
+    "date": "2026-07-07",
+    "title": "The Log Is the Agent: Why Your AI’s Behavior Is Written in Its Trace, Not Its Prompt",
+    "topic": "The Log Is the Agent: Why AI Autonomy Is Now a Logging Problem, Not a Coding One",
+    "urls": [
+      "https://arxiv.org/abs/2605.21997",
+      "https://www.anthropic.com/research/global-workspace",
+      "https://www.kapa.ai/blog/how-we-prune-rag-context"
+    ],
+    "published": true
+  },
+  {
+    "date": "2026-07-08",
+    "title": "Microsoft’s 42% Price Hike Isn’t an AI Tax, It’s a Strategic Bet on Agent-Driven Product Lock-In",
+    "topic": "Microsoft’s 42% Price Hike Isn’t an AI Tax—It’s a Strategic Bet on Agent-Driven Product Lock-In",
+    "urls": [
+      "https://www.windowslatest.com/2026/07/05/microsoft-365-just-got-a-price-hike-over-continuous-innovation-but-copilot-is-the-ai-tax-on-businesses/",
+      "https://github.com/iOfficeAI/OfficeCLI",
+      "https://www.microsoft.com/en-us/microsoft-365/roadmap"
+    ],
+    "published": true
+  },
+  {
+    "date": "2026-07-11",
+    "title": "GPT-5.6 Sol Didn't Just Win a Benchmark, It Redefined What Product Excellence Looks Like",
+    "topic": "GPT-5.6 Sol Crushed Claude Fable on Prototypes — And OpenAI Just Rewrote the Rules of AI Product Benchmarking",
+    "urls": [
+      "https://www.lennysnewsletter.com/p/gpt-56-sol-vs-claude-fable-why-openais",
+      "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+      "https://openai.com/index/gpt-5-6"
+    ],
+    "published": false
   }
 ]
