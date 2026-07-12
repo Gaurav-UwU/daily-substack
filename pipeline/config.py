@@ -29,6 +29,15 @@ MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "qwen/qwen3-next-80b-a3b-instru
 # that returns clean JSON reliably; gpt-oss-120b reasons into a hidden channel
 # and returned empty content on the complex ranking prompt.
 MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
+# Free-tier models go DEGRADED (HTTP 400) or very slow intermittently. When the
+# requested model fails, the LLM client fails over across these, in order, so one
+# bad model never kills the whole run. Both return clean JSON and complete fast.
+NVIDIA_FALLBACK_MODELS = [
+    m.strip() for m in os.getenv("NVIDIA_FALLBACK_MODELS", "").split(",") if m.strip()
+] or [
+    "meta/llama-4-maverick-17b-128e-instruct",
+    "nvidia/nemotron-3-super-120b-a12b",
+]
 
 # --- Substack ------------------------------------------------------------
 SUBSTACK_PUBLICATION_URL = os.getenv("SUBSTACK_PUBLICATION_URL", "").strip()
