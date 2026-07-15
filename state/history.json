@@ -203,5 +203,16 @@
       "https://arxiv.org/abs/2607.09215"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-15",
+    "title": "Cursor’s 0day: When the Agent’s Prompt Is the Attack Surface, And Why That Changes Everything",
+    "topic": "Cursor’s 0day: When the Agent’s Prompt Is the Attack Surface — And Why That Changes Everything",
+    "urls": [
+      "https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left",
+      "https://github.com/cursor-ai/cursor",
+      "https://www.lennysnewsletter.com/p/this-solo-builder-runs-247-local"
+    ],
+    "published": false
   }
 ]
