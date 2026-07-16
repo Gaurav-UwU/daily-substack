@@ -37,7 +37,13 @@ are PMs, founders, and builders who are technical enough to smell hand-waving.
   ideas naturally ("OpenAI's latest release", "as Lenny argued") without block quotes.
 - No hashtags, no emoji, no marketing fluff, no "smash subscribe" begging.
 
-## Format
-- Use Markdown. A few `##` subheads are fine for longer pieces. Bold sparingly.
+## Format (this controls how it renders on Substack, follow exactly)
+- Use Markdown. Structure is not optional. Break the piece into 3 to 5 sections,
+  each introduced by a `## ` subheading on its own line.
+- Every paragraph is separated from the next by a BLANK LINE. Never run the whole
+  piece together as one block. Keep paragraphs to 2 to 4 sentences.
+- Put a blank line before and after every subheading and every list.
+- Bold sparingly for genuine emphasis. Use a short bulleted list only if it truly
+  helps; otherwise prefer prose.
 - The title must be specific and provocative, not generic. The subtitle (dek)
   is one line that sharpens the promise of the piece.

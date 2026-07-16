@@ -30,7 +30,7 @@ def client() -> OpenAI:
         _client = OpenAI(
             base_url=config.NVIDIA_BASE_URL,
             api_key=config.NVIDIA_API_KEY,
-            timeout=100.0,
+            timeout=60.0,
             max_retries=0,
         )
     return _client
@@ -45,14 +45,10 @@ def _candidate_models(model: str | None) -> list[str]:
     return out
 
 
-@retry(
-    reraise=True,
-    stop=stop_after_attempt(2),
-    wait=wait_exponential(multiplier=1, min=1, max=5),
-    retry=retry_if_exception_type(APIConnectionError),
-)
 def _call_once(messages: list[dict[str, str]], model: str, temperature: float,
                max_tokens: int) -> str:
+    # One attempt. A timeout or error means this model is degraded, so the
+    # caller fails over to the next model rather than retrying a bad one.
     resp = client().chat.completions.create(
         model=model, messages=messages, temperature=temperature,
         top_p=0.9, max_tokens=max_tokens, stream=False,
@@ -98,29 +94,44 @@ def chat_json(
     temperature: float = 0.4,
     max_tokens: int = 2048,
 ) -> Any:
-    """Call the model and parse a JSON object/array out of the reply.
+    """Iterate candidate models until one returns parseable JSON.
 
-    We do NOT use response_format=json_object: several NVIDIA-hosted models
-    (notably reasoning models) return empty content under it. Instead we ask
-    for JSON in the prompt, extract robustly, and retry once on failure.
+    A model that times out, returns empty, or returns unparseable JSON is
+    abandoned for the next fallback (with one firmer 'JSON only' nudge per
+    model), so a single degraded model never fails the whole step.
     """
-    raw = chat(messages, model=model, temperature=temperature, max_tokens=max_tokens)
-    if raw.strip():
-        try:
-            return _extract_json(raw)
-        except ValueError:
-            pass
-    nudge = messages + [{
+    nudge = {
         "role": "user",
         "content": "Output ONLY the JSON object. No explanation, no markdown fences, no preamble.",
-    }]
-    raw2 = chat(nudge, model=model, temperature=0.2, max_tokens=max_tokens)
-    return _extract_json(raw2)
+    }
+    first = (model or config.MODEL)
+    last_err: Exception | None = None
+    for m in _candidate_models(model):
+        for msgs, temp in ((messages, temperature), (messages + [nudge], 0.2)):
+            try:
+                raw = _call_once(msgs, m, temp, max_tokens)
+            except Exception as e:  # noqa: BLE001 - degraded model, fail over
+                last_err = e
+                print(f"  [llm-json] {m} call failed ({type(e).__name__}), next model")
+                break  # do not nudge a model that could not even respond
+            if not raw.strip():
+                last_err = ValueError("empty response")
+                break
+            try:
+                out = _extract_json(raw)
+                if m != first:
+                    print(f"  [llm-json] used fallback {m}")
+                return out
+            except ValueError as pe:
+                last_err = pe  # try the nudge, then the next model
+    raise last_err or RuntimeError("no candidate model produced valid JSON")
 
 
 def _extract_json(text: str) -> Any:
     """Pull the first valid JSON object or array out of a model reply."""
     text = text.strip()
+    # Drop reasoning traces some models emit before the answer.
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
     # Strip ```json ... ``` fences if present.
     fence = re.search(r"```(?:json)?\s*(.*?)```", text, re.DOTALL)
     if fence:

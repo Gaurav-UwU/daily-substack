@@ -37,6 +37,7 @@ NVIDIA_FALLBACK_MODELS = [
 ] or [
     "meta/llama-4-maverick-17b-128e-instruct",
     "nvidia/nemotron-3-super-120b-a12b",
+    "openai/gpt-oss-120b",
 ]
 
 # --- Substack ------------------------------------------------------------
