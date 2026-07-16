@@ -17,28 +17,37 @@ PROMPTS_DIR = ROOT / "prompts"
 STATE_DIR.mkdir(exist_ok=True)
 POSTS_DIR.mkdir(exist_ok=True)
 
-# --- NVIDIA NIM (OpenAI-compatible) --------------------------------------
-NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
+# --- LLM provider (OpenAI-compatible) ------------------------------------
+# Groq is preferred: fast and reliable, unlike NVIDIA's free tier which goes
+# DEGRADED under load. If GROQ_API_KEY is set we use Groq; otherwise NVIDIA.
+def _split_env(name: str) -> list[str]:
+    return [m.strip() for m in os.getenv(name, "").split(",") if m.strip()]
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "").strip()
-# Model picks from a live bake-off (speed + quality on the free tier).
-# Writer: qwen3-next-80b-a3b (best prose, ~17s/essay). DeepSeek V4 Pro had the
-# best prose but times out on the free tier's low throughput, so it is unusable
-# for a timed job. An empty env var falls back here, never to blank.
-MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
-# Judge for ranking + the quality gate. qwen3-next is a plain instruct model
-# that returns clean JSON reliably; gpt-oss-120b reasons into a hidden channel
-# and returned empty content on the complex ranking prompt.
-MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
-# Free-tier models go DEGRADED (HTTP 400) or very slow intermittently. When the
-# requested model fails, the LLM client fails over across these, in order, so one
-# bad model never kills the whole run. Both return clean JSON and complete fast.
-NVIDIA_FALLBACK_MODELS = [
-    m.strip() for m in os.getenv("NVIDIA_FALLBACK_MODELS", "").split(",") if m.strip()
-] or [
-    "meta/llama-4-maverick-17b-128e-instruct",
-    "nvidia/nemotron-3-super-120b-a12b",
-    "openai/gpt-oss-120b",
-]
+
+if GROQ_API_KEY:
+    LLM_PROVIDER = "groq"
+    LLM_BASE_URL = "https://api.groq.com/openai/v1"
+    LLM_API_KEY = GROQ_API_KEY
+    MODEL = os.getenv("LLM_MODEL", "").strip() or "llama-3.3-70b-versatile"
+    MODEL_REASON = os.getenv("LLM_MODEL_REASON", "").strip() or MODEL
+    FALLBACK_MODELS = _split_env("LLM_FALLBACK_MODELS") or [
+        "qwen/qwen3.6-27b",
+        "openai/gpt-oss-120b",
+        "llama-3.1-8b-instant",
+    ]
+else:
+    LLM_PROVIDER = "nvidia"
+    LLM_BASE_URL = "https://integrate.api.nvidia.com/v1"
+    LLM_API_KEY = NVIDIA_API_KEY
+    MODEL = os.getenv("NVIDIA_MODEL", "").strip() or "qwen/qwen3-next-80b-a3b-instruct"
+    MODEL_REASON = os.getenv("NVIDIA_MODEL_REASON", "").strip() or MODEL
+    FALLBACK_MODELS = _split_env("NVIDIA_FALLBACK_MODELS") or [
+        "meta/llama-4-maverick-17b-128e-instruct",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "openai/gpt-oss-120b",
+    ]
 
 # --- Substack ------------------------------------------------------------
 SUBSTACK_PUBLICATION_URL = os.getenv("SUBSTACK_PUBLICATION_URL", "").strip()
@@ -108,8 +117,8 @@ WORD_MAX = 1100
 def missing_required() -> list[str]:
     """Return a list of human-readable missing-config problems."""
     problems = []
-    if not NVIDIA_API_KEY:
-        problems.append("NVIDIA_API_KEY is not set")
+    if not LLM_API_KEY:
+        problems.append("No LLM key set (GROQ_API_KEY or NVIDIA_API_KEY)")
     if not DRY_RUN:
         if not SUBSTACK_PUBLICATION_URL:
             problems.append("SUBSTACK_PUBLICATION_URL is not set")

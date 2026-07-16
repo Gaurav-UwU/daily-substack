@@ -31,6 +31,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       WARP_PROXY: "socks5h://127.0.0.1:40000"
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
       NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL }}
       NVIDIA_MODEL_REASON: ${{ vars.NVIDIA_MODEL_REASON }}

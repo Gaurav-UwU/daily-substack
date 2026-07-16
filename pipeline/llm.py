@@ -21,15 +21,13 @@ _client: OpenAI | None = None
 def client() -> OpenAI:
     global _client
     if _client is None:
-        if not config.NVIDIA_API_KEY:
-            raise RuntimeError("NVIDIA_API_KEY is not set")
-        # Per-request timeout so a stalled endpoint fails fast instead of
-        # eating the whole CI budget. tenacity handles the retries.
-        # Short per-request timeout so a slow/DEGRADED model fails over fast
-        # instead of eating minutes. Retries are handled below.
+        if not config.LLM_API_KEY:
+            raise RuntimeError("No LLM key set (GROQ_API_KEY or NVIDIA_API_KEY)")
+        # Short per-request timeout so a slow/degraded model fails over fast
+        # instead of eating minutes. Failover across models is handled below.
         _client = OpenAI(
-            base_url=config.NVIDIA_BASE_URL,
-            api_key=config.NVIDIA_API_KEY,
+            base_url=config.LLM_BASE_URL,
+            api_key=config.LLM_API_KEY,
             timeout=60.0,
             max_retries=0,
         )
@@ -39,7 +37,7 @@ def client() -> OpenAI:
 def _candidate_models(model: str | None) -> list[str]:
     """The requested model first, then the fallbacks (de-duplicated)."""
     out: list[str] = []
-    for m in [model or config.MODEL, *config.NVIDIA_FALLBACK_MODELS]:
+    for m in [model or config.MODEL, *config.FALLBACK_MODELS]:
         if m and m not in out:
             out.append(m)
     return out
