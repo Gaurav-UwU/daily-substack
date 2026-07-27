@@ -117,11 +117,18 @@ def chat_json(
                 break
             try:
                 out = _extract_json(raw)
+            except ValueError as pe:
+                last_err = pe  # try the nudge, then the next model
+                continue
+            # Some models wrap the object in a one-element array; unwrap it.
+            if isinstance(out, list):
+                objs = [x for x in out if isinstance(x, dict)]
+                out = objs[0] if objs else out
+            if isinstance(out, dict):
                 if m != first:
                     print(f"  [llm-json] used fallback {m}")
                 return out
-            except ValueError as pe:
-                last_err = pe  # try the nudge, then the next model
+            last_err = ValueError("parsed JSON was not an object")
     raise last_err or RuntimeError("no candidate model produced valid JSON")
 
 
