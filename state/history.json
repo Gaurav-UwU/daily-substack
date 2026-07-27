@@ -224,5 +224,14 @@
       "https://www.lennysnewsletter.com/p/claude-opus-5-review-this-model-is"
     ],
     "published": false
+  },
+  {
+    "date": "2026-07-27",
+    "title": "Why the Next AI UI Won’t Be a Blank Prompt: Control Panels Are the New Intent Engine",
+    "topic": "The Control Panel Revolution: How Large Language Models Are Redefining User Intent",
+    "urls": [
+      "https://arxiv.org/abs/2607.21598"
+    ],
+    "published": false
   }
 ]
