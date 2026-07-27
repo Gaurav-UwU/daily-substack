@@ -25,8 +25,9 @@ def build_context(topic: dict[str, Any]) -> str:
                 chunks.append(f"### SEARCH HIT: {hit.get('title','')} ({hit.get('url','')})\n{snip}")
 
     context = "\n\n".join(chunks)
-    if len(context) > 14000:
-        context = context[:14000]
+    # Keep prompts small enough for the free-tier tokens-per-minute limit.
+    if len(context) > 8000:
+        context = context[:8000]
     if not context:
         context = "(No external text could be fetched. Write from the title and angle only, and stay qualitative. Do not invent specifics.)"
     return context

@@ -8,12 +8,20 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from typing import Any
 
-from openai import OpenAI, APIConnectionError
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from openai import OpenAI, RateLimitError
 
 from . import config
+
+
+def _retry_after_seconds(err: Exception) -> float:
+    """Seconds to wait after a 429, parsed from the message (capped)."""
+    m = re.search(r"try again in ([\d.]+)\s*s", str(err))
+    if m:
+        return min(float(m.group(1)) + 2.0, 60.0)
+    return 25.0
 
 _client: OpenAI | None = None
 
@@ -70,18 +78,28 @@ def chat(
     """
     requested = model or config.MODEL
     last_err: Exception | None = None
-    for m in _candidate_models(model):
-        try:
-            out = _call_once(messages, m, temperature, max_tokens)
-            if out.strip():
-                if m != requested:
-                    print(f"  [llm] fell back to {m}")
-                return out
-            last_err = ValueError("empty response")
-            print(f"  [llm] {m} returned empty, trying next model")
-        except Exception as e:  # noqa: BLE001 - fail over on any model error
-            last_err = e
-            print(f"  [llm] {m} failed ({type(e).__name__}: {str(e)[:90]}), trying next model")
+    for rl_attempt in range(4):
+        rate_limited = False
+        for m in _candidate_models(model):
+            try:
+                out = _call_once(messages, m, temperature, max_tokens)
+                if out.strip():
+                    if m != requested:
+                        print(f"  [llm] fell back to {m}")
+                    return out
+                last_err = ValueError("empty response")
+            except RateLimitError as e:
+                last_err = e
+                rate_limited = True
+            except Exception as e:  # noqa: BLE001 - fail over on any model error
+                last_err = e
+                print(f"  [llm] {m} failed ({type(e).__name__}: {str(e)[:80]}), next model")
+        if rate_limited and rl_attempt < 3:
+            wait = _retry_after_seconds(last_err)
+            print(f"  [llm] all models rate-limited, waiting {wait:.0f}s then retrying")
+            time.sleep(wait)
+            continue
+        break
     raise last_err or RuntimeError("all candidate models failed")
 
 
@@ -104,31 +122,43 @@ def chat_json(
     }
     first = (model or config.MODEL)
     last_err: Exception | None = None
-    for m in _candidate_models(model):
-        for msgs, temp in ((messages, temperature), (messages + [nudge], 0.2)):
-            try:
-                raw = _call_once(msgs, m, temp, max_tokens)
-            except Exception as e:  # noqa: BLE001 - degraded model, fail over
-                last_err = e
-                print(f"  [llm-json] {m} call failed ({type(e).__name__}), next model")
-                break  # do not nudge a model that could not even respond
-            if not raw.strip():
-                last_err = ValueError("empty response")
-                break
-            try:
-                out = _extract_json(raw)
-            except ValueError as pe:
-                last_err = pe  # try the nudge, then the next model
-                continue
-            # Some models wrap the object in a one-element array; unwrap it.
-            if isinstance(out, list):
-                objs = [x for x in out if isinstance(x, dict)]
-                out = objs[0] if objs else out
-            if isinstance(out, dict):
-                if m != first:
-                    print(f"  [llm-json] used fallback {m}")
-                return out
-            last_err = ValueError("parsed JSON was not an object")
+    for rl_attempt in range(4):
+        rate_limited = False
+        for m in _candidate_models(model):
+            for msgs, temp in ((messages, temperature), (messages + [nudge], 0.2)):
+                try:
+                    raw = _call_once(msgs, m, temp, max_tokens)
+                except RateLimitError as e:
+                    last_err = e
+                    rate_limited = True
+                    break  # this model is out of budget; try the next model
+                except Exception as e:  # noqa: BLE001 - degraded model, fail over
+                    last_err = e
+                    print(f"  [llm-json] {m} failed ({type(e).__name__}), next model")
+                    break
+                if not raw.strip():
+                    last_err = ValueError("empty response")
+                    break
+                try:
+                    out = _extract_json(raw)
+                except ValueError as pe:
+                    last_err = pe  # try the nudge, then the next model
+                    continue
+                # Some models wrap the object in a one-element array; unwrap it.
+                if isinstance(out, list):
+                    objs = [x for x in out if isinstance(x, dict)]
+                    out = objs[0] if objs else out
+                if isinstance(out, dict):
+                    if m != first:
+                        print(f"  [llm-json] used fallback {m}")
+                    return out
+                last_err = ValueError("parsed JSON was not an object")
+        if rate_limited and rl_attempt < 3:
+            wait = _retry_after_seconds(last_err)
+            print(f"  [llm-json] all models rate-limited, waiting {wait:.0f}s then retrying")
+            time.sleep(wait)
+            continue
+        break
     raise last_err or RuntimeError("no candidate model produced valid JSON")
 
 

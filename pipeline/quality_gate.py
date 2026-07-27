@@ -17,7 +17,7 @@ def evaluate(article: dict[str, str], topic: dict[str, Any], context: str = "") 
     # 1. Hard programmatic checks first. Any violation = automatic hold.
     violations = write.style_violations(article)
 
-    source_block = (context or "(no source text was captured)")[:9000]
+    source_block = (context or "(no source text was captured)")[:4000]
 
     # 2. LLM rubric score, grounded in the SOURCES the writer actually used.
     user = f"""Evaluate this draft for publication.
