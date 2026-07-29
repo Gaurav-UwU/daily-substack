@@ -242,5 +242,16 @@
       "https://twitter.com/HedgieMarkets/status/2081534588485296565"
     ],
     "published": true
+  },
+  {
+    "date": "2026-07-29",
+    "title": "Why DoorDash, Instacart, and Uber Eats Built Three Different LLM Search Engines",
+    "topic": "Why DoorDash, Instacart, and Uber Eats Integrated LLMs Into Search Three Different Ways",
+    "urls": [
+      "https://blog.bytebytego.com/p/why-doordash-instacart-and-uber-eats",
+      "https://www.doordash.com/",
+      "https://www.instacart.com/"
+    ],
+    "published": true
   }
 ]
