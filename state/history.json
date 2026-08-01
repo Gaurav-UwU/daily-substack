@@ -272,5 +272,14 @@
       "https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-01",
+    "title": "The 10% Reality Check: Why AI Won’t Make Your Engineers Ten Times Faster",
+    "topic": "The 10% Reality Check: Why AI Productivity Gains Are Overhyped",
+    "urls": [
+      "https://leaddev.com/reporting/ai-productivity-gains-are-closer-to-10-than-10x"
+    ],
+    "published": false
   }
 ]
