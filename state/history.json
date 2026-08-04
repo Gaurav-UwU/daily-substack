@@ -300,5 +300,15 @@
       "https://www.whatnot.com/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-04",
+    "title": "Google’s AI Studio Pullback Reveals a New Playbook for AI Creativity Tools",
+    "topic": "Google's AI Studio App Cancellation: A Strategic Retreat or a Product Realignment?",
+    "urls": [
+      "https://twitter.com/GoogleAIStudio/status/2083274575769473092",
+      "https://getbor.dev/blog/2026-08-02-bor-v080-release/"
+    ],
+    "published": true
   }
 ]
