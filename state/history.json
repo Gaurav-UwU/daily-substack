@@ -310,5 +310,15 @@
       "https://getbor.dev/blog/2026-08-02-bor-v080-release/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-05",
+    "title": "Why Circles’ AI‑Powered Telco Playbook Is the Blueprint for the Next Revenue Surge",
+    "topic": "Circles' AI-Powered Telco Playbook: How OpenAI Technology Boosted ARPU by 22%",
+    "urls": [
+      "https://openai.com/index/circles",
+      "https://www.openai.com/index/learn-teach-chatgpt-work-codex"
+    ],
+    "published": false
   }
 ]
