@@ -320,5 +320,14 @@
       "https://www.openai.com/index/learn-teach-chatgpt-work-codex"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-06",
+    "title": "Why Cloudflare OS Turns Edge Computing Into the New AI Playground",
+    "topic": "Cloudflare OS: The Operating System for AI Agents and the Future of Edge Computing",
+    "urls": [
+      "https://blog.cloudflare.com/cloudflare-os/"
+    ],
+    "published": true
   }
 ]
