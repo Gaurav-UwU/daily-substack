@@ -329,5 +329,14 @@
       "https://blog.cloudflare.com/cloudflare-os/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-07",
+    "title": "Why AMD’s Taalas Buy Turns Inference Into a Commodity",
+    "topic": "The Silicon Advantage: How AMD's Taalas Acquisition Changes the AI Inference Game",
+    "urls": [
+      "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344"
+    ],
+    "published": true
   }
 ]
