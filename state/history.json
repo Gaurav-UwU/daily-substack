@@ -338,5 +338,14 @@
       "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-08",
+    "title": "Why One-Third of Rogue AI Commands Slip Past Human Gatekeepers",
+    "topic": "The 1-in-3 Threat: How Humans Are Failing to Vet AI Agent Commands",
+    "urls": [
+      "https://scalex.dev/blog/ai-agent-permissions-stats/"
+    ],
+    "published": true
   }
 ]
