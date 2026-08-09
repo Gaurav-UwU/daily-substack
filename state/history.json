@@ -347,5 +347,14 @@
       "https://scalex.dev/blog/ai-agent-permissions-stats/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-09",
+    "title": "Why V8 Isolates Turn Kitesurf Into the First AI-First Browser",
+    "topic": "Kitesurf: How Cloudflare's V8 Isolate-Based Browser Redefines the Edge of AI-Powered Web Browsing",
+    "urls": [
+      "https://blog.cloudflare.com/kitesurf/"
+    ],
+    "published": true
   }
 ]
