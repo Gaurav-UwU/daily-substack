@@ -356,5 +356,15 @@
       "https://blog.cloudflare.com/kitesurf/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-10",
+    "title": "Why ChatGPT’s Style Block Matters More Than You Think",
+    "topic": "ChatGPT's Style Block: The Unseen Battle for Authorial Voice in AI-Generated Content",
+    "urls": [
+      "https://arstechnica.com/ai/2026/07/chatgpt-stops-cloning-famous-writers-voices-but-may-capture-a-similar-feeling/",
+      "https://www.chatgpt.com/"
+    ],
+    "published": true
   }
 ]
