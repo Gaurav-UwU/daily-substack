@@ -366,5 +366,15 @@
       "https://www.chatgpt.com/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-11",
+    "title": "Why Meta’s Muse Glimmer Threatens the Cloud‑AI Monopoly",
+    "topic": "Meta's Muse Glimmer: The Strategic Bet on Local, Agentic AI",
+    "urls": [
+      "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+      "https://huggingface.co/blog/muse-glimmer"
+    ],
+    "published": false
   }
 ]
