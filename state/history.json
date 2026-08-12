@@ -376,5 +376,15 @@
       "https://huggingface.co/blog/muse-glimmer"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-12",
+    "title": "Why Ads in ChatGPT Signal the End of the Subscription Only AI Playbook",
+    "topic": "The Ad-Supported AI Paradigm: What ChatGPT's Ad Test Reveals About the Future of AI Business Models",
+    "urls": [
+      "https://openai.com/index/testing-ads-in-chatgpt",
+      "https://www.theverge.com/2023/8/10/23854144/openai-chatgpt-ads-testing"
+    ],
+    "published": false
   }
 ]
