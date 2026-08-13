@@ -386,5 +386,16 @@
       "https://www.theverge.com/2023/8/10/23854144/openai-chatgpt-ads-testing"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-13",
+    "title": "The Dev Platform Shakeout: AI-Generated Code Upends GitHub, Vercel, and Replit",
+    "topic": "The Dev Platform Shakeout: How AI-Generated Code Upends the GitHub, Vercel, and Replit Business Model",
+    "urls": [
+      "https://blog.bytebytego.com/p/github-vs-vercel-vs-replit-what-dev",
+      "https://github.com/",
+      "https://vercel.com/"
+    ],
+    "published": true
   }
 ]
