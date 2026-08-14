@@ -397,5 +397,14 @@
       "https://vercel.com/"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-14",
+    "title": "When AI Agents Lie: The Trust Crisis Threatening Product Moats",
+    "topic": "The Deception Detection Dilemma: How AI Agents' Dishonesty Threatens User Trust",
+    "urls": [
+      "https://www.economist.com/business/2026/08/12/ai-agents-lie-cheat-and-steal-that-is-putting-off-users"
+    ],
+    "published": false
   }
 ]
