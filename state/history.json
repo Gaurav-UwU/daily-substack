@@ -406,5 +406,15 @@
       "https://www.economist.com/business/2026/08/12/ai-agents-lie-cheat-and-steal-that-is-putting-off-users"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-15",
+    "title": "The Ultrafast Revolution: Why Speed Is the New Moat for AI Products",
+    "topic": "The Ultrafast Revolution: How OpenAI's 14X Speed Boost Redefines AI Product Strategy",
+    "urls": [
+      "https://openai.com/index/previewing-ultrafast",
+      "https://openai.com/index/builders-guide-to-gpt-5-6"
+    ],
+    "published": true
   }
 ]
