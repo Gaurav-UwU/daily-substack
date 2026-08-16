@@ -416,5 +416,15 @@
       "https://openai.com/index/builders-guide-to-gpt-5-6"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-16",
+    "title": "Shareable AI Agents: Why a Single URL Could Rewrite Product Collaboration",
+    "topic": "The Rise of Shareable AI Agents: How HashAgent's URL-Based Model Redefines Collaboration",
+    "urls": [
+      "https://hashagent.pages.dev/",
+      "https://github.com/lajosdeme/mole"
+    ],
+    "published": true
   }
 ]
