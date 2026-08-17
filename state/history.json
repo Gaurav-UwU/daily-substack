@@ -426,5 +426,15 @@
       "https://github.com/lajosdeme/mole"
     ],
     "published": true
+  },
+  {
+    "date": "2026-08-17",
+    "title": "Design in the Age of AI: Why Ian Silber Says This Is the Best Moment to Be Human",
+    "topic": "The Design Revolution: How OpenAI's Head of Design is Redefining the Role of Humans in AI-Driven Products",
+    "urls": [
+      "https://www.lennysnewsletter.com/p/openais-head-of-design-this-is-the",
+      "https://www.openai.com/"
+    ],
+    "published": false
   }
 ]
