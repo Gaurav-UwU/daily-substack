@@ -436,5 +436,16 @@
       "https://www.openai.com/"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-19",
+    "title": "Stripe’s $7 B OpenRouter Grab Is the Real AI‑as‑a‑Service Playbook",
+    "topic": "Why Stripe’s $7B OpenRouter Deal Is the Real AI‑as‑a‑Service Playbook",
+    "urls": [
+      "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+      "https://openrouter.ai",
+      "https://stripe.com/newsroom"
+    ],
+    "published": false
   }
 ]
