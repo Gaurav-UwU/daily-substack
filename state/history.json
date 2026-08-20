@@ -447,5 +447,15 @@
       "https://stripe.com/newsroom"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-20",
+    "title": "Amazon’s Rare‑Book Data Moat: Turning Cultural Heritage into a Competitive Edge",
+    "topic": "Amazon’s Rare‑Book Data Moat: How Destroying Priceless Texts Is Becoming an AI Product Strategy",
+    "urls": [
+      "https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/",
+      "https://news.ycombinator.com/item?id=49340013"
+    ],
+    "published": false
   }
 ]
