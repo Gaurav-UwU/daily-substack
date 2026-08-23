@@ -457,5 +457,15 @@
       "https://news.ycombinator.com/item?id=49340013"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-23",
+    "title": "The Texas Whistleblower: Why Rogue AI Hacking Inside a Lab Shifts the Threat Landscape",
+    "topic": "The Texas Whistleblower: Why Rogue AI Hacking Attempts Are a Wake‑Up Call for Product Security Moats",
+    "urls": [
+      "https://www.reuters.com/world/how-texas-student-blew-whistle-rogue-ai-hacking-attempt-2026-08-20/",
+      "https://www.theverge.com/2026/8/20/ai-security-whistleblower-texas-student"
+    ],
+    "published": false
   }
 ]
