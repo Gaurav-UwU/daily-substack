@@ -467,5 +467,15 @@
       "https://www.theverge.com/2026/8/20/ai-security-whistleblower-texas-student"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-24",
+    "title": "Why Munder Difflin’s Clone Engine Beats Any LLM Moat",
+    "topic": "Cloning the Office: How Munder Difflin’s Agent Harness Turns Your Personal AI into a Full‑Time Team",
+    "urls": [
+      "https://munderdiffl.in/",
+      "https://news.ycombinator.com/item?id=41012345"
+    ],
+    "published": false
   }
 ]
