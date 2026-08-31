@@ -477,5 +477,16 @@
       "https://news.ycombinator.com/item?id=41012345"
     ],
     "published": false
+  },
+  {
+    "date": "2026-08-31",
+    "title": "Self‑Improving Claude Agents Are the New Moat for AI Products",
+    "topic": "Why Warp’s Self‑Improving Claude Agents Signal the Next Moat for AI Products",
+    "urls": [
+      "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+      "https://warp.ai/blog/self-improving-agents",
+      "https://www.anthropic.com/news/claude-3-system-prompt"
+    ],
+    "published": true
   }
 ]
