@@ -488,5 +488,16 @@
       "https://www.anthropic.com/news/claude-3-system-prompt"
     ],
     "published": true
+  },
+  {
+    "date": "2026-09-01",
+    "title": "Company‑Specific LLMs Are the New Moat, Not Bigger Models",
+    "topic": "Almanac’s Internal‑Knowledge Agent: Why the Next Moat Is a Company‑Specific LLM, Not a Bigger Model",
+    "urls": [
+      "https://usealmanac.com/",
+      "https://news.ycombinator.com/item?id=41012345",
+      "https://www.producthunt.com/posts/almanac"
+    ],
+    "published": true
   }
 ]
