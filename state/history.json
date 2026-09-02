@@ -499,5 +499,16 @@
       "https://www.producthunt.com/posts/almanac"
     ],
     "published": true
+  },
+  {
+    "date": "2026-09-02",
+    "title": "2,000 Agent PRs on DoltLite Prove AI Can Write Databases, Not Just Query Them",
+    "topic": "Why DoltLite’s 2,000 Agent PRs Signal a New Playbook for AI‑Powered Developer Tools",
+    "urls": [
+      "https://www.dolthub.com/blog/2026-08-31-doltlite-beta/",
+      "https://dolthub.com/",
+      "https://github.com/dolthub/dolt"
+    ],
+    "published": false
   }
 ]
