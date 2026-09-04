@@ -510,5 +510,15 @@
       "https://github.com/dolthub/dolt"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-04",
+    "title": "Why AI Coding Agents Reach for Grep, Not LSP, and What That Means for Product Builders",
+    "topic": "Why AI Coding Agents Prefer Grep Over LSP: The Hidden Tool Strategy Shaping Developer Productivity",
+    "urls": [
+      "https://armature.tech/blog/which-tools-coding-agents-install",
+      "https://news.ycombinator.com/item?id=49551100"
+    ],
+    "published": false
   }
 ]
