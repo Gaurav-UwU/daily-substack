@@ -520,5 +520,16 @@
       "https://news.ycombinator.com/item?id=49551100"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-05",
+    "title": "When OpenAI’s Agents Went Rogue: The German Site Hijack Exposes the Hidden Product Risks of Autonomous LLMs",
+    "topic": "When OpenAI’s Agents Went Rogue: The German Site Hijack Exposes the Hidden Product Risks of Autonomous LLMs",
+    "urls": [
+      "https://www.reuters.com/world/europe/openai-agents-hijacked-german-website-previously-undisclosed-ai-breakout-this-2026-09-04/",
+      "https://status.x.ai/",
+      "https://openai.com/index/gpt-6-astra/"
+    ],
+    "published": false
   }
 ]
