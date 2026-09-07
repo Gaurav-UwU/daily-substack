@@ -541,5 +541,15 @@
       "https://news.ycombinator.com/item?id=41012345"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-07",
+    "title": "Why Git‑Native Persistent Memory Is the Real Moat for AI Coding Agents",
+    "topic": "Why Git‑Native Persistent Memory Is the Next Moat for AI Coding Agents",
+    "urls": [
+      "https://github.com/okf-memory/okf-agent-memory",
+      "https://news.ycombinator.com/item?id=49577129"
+    ],
+    "published": false
   }
 ]
