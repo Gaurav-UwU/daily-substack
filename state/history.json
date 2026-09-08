@@ -551,5 +551,16 @@
       "https://news.ycombinator.com/item?id=49577129"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-08",
+    "title": "Agent Testing Is the New Moat: Why Verification Beats Model Size",
+    "topic": "Why Agent Testing Is the Next Product Moat: Lessons from Dan Luu’s Agentic Testing Deep‑Dive",
+    "urls": [
+      "https://danluu.com/agentic-testing/",
+      "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+      "https://github.com/openai/skills"
+    ],
+    "published": false
   }
 ]
