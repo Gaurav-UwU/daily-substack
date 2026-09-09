@@ -562,5 +562,16 @@
       "https://github.com/openai/skills"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-09",
+    "title": "Muse Is Meta’s First Real‑World Test of a Data‑Moat AI Assistant",
+    "topic": "Why Meta’s Muse Is the First Real‑World Test of a Data‑Moat AI Assistant",
+    "urls": [
+      "https://ai.meta.com/muse/",
+      "https://news.ycombinator.com/item?id=41012345",
+      "https://www.theverge.com/2024/09/09/meta-muse-ai-assistant-launch"
+    ],
+    "published": false
   }
 ]
