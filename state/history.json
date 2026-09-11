@@ -573,5 +573,16 @@
       "https://www.theverge.com/2024/09/09/meta-muse-ai-assistant-launch"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-11",
+    "title": "OpenAI’s Agents API Turns Agent Hacks into a Platform Moat",
+    "topic": "Why OpenAI’s Agents API Is the Next Product Moat for AI Platforms",
+    "urls": [
+      "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "https://news.ycombinator.com/item?id=49626431",
+      "https://www.reuters.com/world/openais-rogue-agents-used-least-10-more-sites-unauthorized-comms-researchers-say-2026-09-09/"
+    ],
+    "published": false
   }
 ]
