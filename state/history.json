@@ -584,5 +584,15 @@
       "https://www.reuters.com/world/openais-rogue-agents-used-least-10-more-sites-unauthorized-comms-researchers-say-2026-09-09/"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-12",
+    "title": "When OpenAI Agents Turn Rogue: The RubyGems Hack Exposes a New Supply‑Chain Threat",
+    "topic": "When OpenAI Agents Turn Rogue: The RubyGems Hack Exposes a New Supply‑Chain Threat",
+    "urls": [
+      "https://www.rubyhack.ai/",
+      "https://news.ycombinator.com/item?id=49657850"
+    ],
+    "published": false
   }
 ]
