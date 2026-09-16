@@ -605,5 +605,15 @@
       "https://www.bloomberg.com/news/articles/2026-09-02/nvidia-sets-ais-interest-rate-with-its-chip-pricing"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-16",
+    "title": "Why a ‘Company‑Running‑Agent’ Like Pion Is the Next Moat (and the Biggest Risk) for AI‑First Startups",
+    "topic": "Why a ‘Company‑Running‑Agent’ Like Pion Is the Next Moat (and the Biggest Risk) for AI‑First Startups",
+    "urls": [
+      "https://andonlabs.com/blog/why-we-built-pion",
+      "https://news.ycombinator.com/item?id=41012345"
+    ],
+    "published": false
   }
 ]
