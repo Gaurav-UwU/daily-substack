@@ -615,5 +615,15 @@
       "https://news.ycombinator.com/item?id=41012345"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-17",
+    "title": "Baseten’s GitHub Token Hijack Shows AI Platforms Are Only as Secure as Their DevOps Pipelines",
+    "topic": "Why Baseten’s GitHub Token Takeover Is a Wake‑Up Call for Every AI Platform",
+    "urls": [
+      "https://www.strix.ai/blog/baseten-harbor-github-pat-takeover",
+      "https://news.ycombinator.com/item?id=41012345"
+    ],
+    "published": false
   }
 ]
