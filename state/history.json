@@ -636,5 +636,16 @@
       "https://www.theverge.com/2024/09/18/zcode-git-history-privacy"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-20",
+    "title": "Claude Code’s AGENTS.md: The Hidden Moat Behind AI Coding Assistants",
+    "topic": "Why Claude Code’s New AGENTS.md Support Is the Next Moat for AI Coding Assistants",
+    "urls": [
+      "https://code.claude.com/docs/en/changelog",
+      "https://twitter.com/trq212/status/2101009392611278961",
+      "https://github.com/anthropics/claude-code"
+    ],
+    "published": false
   }
 ]
