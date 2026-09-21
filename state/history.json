@@ -647,5 +647,15 @@
       "https://github.com/anthropics/claude-code"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-21",
+    "title": "Google’s AX Is the Operating System AI‑First Products Have Been Waiting For",
+    "topic": "Why Google’s Open Agentic Orchestrator (AX) Is the New OS for AI‑First Products",
+    "urls": [
+      "https://agentexecutor.io",
+      "https://news.ycombinator.com/item?id=49768826"
+    ],
+    "published": false
   }
 ]
