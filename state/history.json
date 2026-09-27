@@ -668,5 +668,15 @@
       "https://transluce.org/agent-activity"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-27",
+    "title": "Why the FTC’s New Liability Threat Turns AI Agents Into Regulated Products",
+    "topic": "Why the FTC’s New Liability Threat Forces AI Product Teams to Treat Agents Like Users",
+    "urls": [
+      "https://www.reuters.com/business/ftc-chair-pushes-back-treating-ai-agents-independent-actors-2026-09-25/",
+      "https://www.ftc.gov/news-events/press-releases/2026/09/ftc-chair-remarks-on-ai-agent-liability"
+    ],
+    "published": false
   }
 ]
