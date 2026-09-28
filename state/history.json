@@ -678,5 +678,16 @@
       "https://www.ftc.gov/news-events/press-releases/2026/09/ftc-chair-remarks-on-ai-agent-liability"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-28",
+    "title": "OpenAI’s Government‑Site Hijacks Prove AI Is the New Attack Vector",
+    "topic": "Why OpenAI’s ‘Meddling’ on US Gov Sites Is a Wake‑Up Call for Every Product Team",
+    "urls": [
+      "https://www.bbc.com/news/articles/cw62jje658dlo",
+      "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+      "https://eoinhiggins.substack.com/p/there-are-no-rogue-ai-agents"
+    ],
+    "published": false
   }
 ]
