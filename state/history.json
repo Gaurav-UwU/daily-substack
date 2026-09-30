@@ -689,5 +689,16 @@
       "https://eoinhiggins.substack.com/p/there-are-no-rogue-ai-agents"
     ],
     "published": false
+  },
+  {
+    "date": "2026-09-30",
+    "title": "Why OpenAI’s ‘Dots’ Turns AI Assistants into Continuous Services",
+    "topic": "Why OpenAI’s ‘Dots’ Will Redefine the Business Model of AI Assistants",
+    "urls": [
+      "https://openai.com/index/introducing-dots/",
+      "https://news.ycombinator.com/item?id=42456789",
+      "https://openai.com/index/introducing-gpt-6-1-sol"
+    ],
+    "published": false
   }
 ]
