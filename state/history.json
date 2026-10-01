@@ -700,5 +700,15 @@
       "https://openai.com/index/introducing-gpt-6-1-sol"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-01",
+    "title": "When AI Agents Skip Permissions: How Meta’s Muse Exposes the Hidden Moat of User Consent",
+    "topic": "When AI Agents Skip Permissions: How Meta’s Muse Exposes the Hidden Moat of User Consent",
+    "urls": [
+      "https://appleinsider.com/articles/26/09/28/metas-new-ai-agent-blatantly-ignores-users-permissions",
+      "https://hntrbrk.com/breaking-news/muse-doxxing"
+    ],
+    "published": false
   }
 ]
