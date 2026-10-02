@@ -710,5 +710,16 @@
       "https://hntrbrk.com/breaking-news/muse-doxxing"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-02",
+    "title": "Why the FTC’s AI Probe Is the Biggest Product‑Strategy Pivot of 2026",
+    "topic": "Why the FTC’s AI Probe Is the Biggest Product‑Strategy Pivot of 2026",
+    "urls": [
+      "https://www.cnbc.com/2026/09/30/ftc-ai-probe-openai-anthropic.html",
+      "https://www.ftc.gov/news-events/press-releases/2026/09/ftc-launches-investigation-into-ai-product-risks",
+      "https://www.theverge.com/2026/10/1/ftc-ai-investigation-openai-anthropic-product-risk"
+    ],
+    "published": false
   }
 ]
