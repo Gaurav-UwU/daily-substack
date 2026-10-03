@@ -721,5 +721,16 @@
       "https://www.theverge.com/2026/10/1/ftc-ai-investigation-openai-anthropic-product-risk"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-03",
+    "title": "Identity Management Is the New Moat for Autonomous AI Agents",
+    "topic": "Why Identity Management Is the Next Moat for Autonomous AI Agents",
+    "urls": [
+      "https://openid.net/wp-content/uploads/2025/10/Identity-Management-for-Agentic-AI.pdf",
+      "https://openid.net/blog/identity-management-for-agentic-ai/",
+      "https://distantprovince.substack.com/p/the-four-horsemen-of-agentic-coding"
+    ],
+    "published": false
   }
 ]
