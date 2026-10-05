@@ -732,5 +732,16 @@
       "https://distantprovince.substack.com/p/the-four-horsemen-of-agentic-coding"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-05",
+    "title": "Why AI Agents Should Forget Memory and Live in Docs",
+    "topic": "Why AI Agents Should Forget Memory and Rely on Documentation – A Product Playbook",
+    "urls": [
+      "https://liao.gg/blog/agents-dont-need-memory",
+      "https://news.ycombinator.com/item?id=41012345",
+      "https://github.com/openai/openai-cookbook/blob/main/examples/agents/agent_documentation.md"
+    ],
+    "published": false
   }
 ]
