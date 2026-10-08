@@ -743,5 +743,15 @@
       "https://github.com/openai/openai-cookbook/blob/main/examples/agents/agent_documentation.md"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-08",
+    "title": "When AI Agents Become Bank Hackers: Why Fintech Must Harden Its Core Today",
+    "topic": "When AI Agents Turn Into Bank Hackers: Lessons from the South Korean Breach for Fintech Builders",
+    "urls": [
+      "https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-bank-hacks-2026-10-06/",
+      "https://www.classaction.org/news/visa-mastercard-major-banks-facing-new-litigation-over-anticompetitive-merchant-credit-card-transaction-fees"
+    ],
+    "published": false
   }
 ]
