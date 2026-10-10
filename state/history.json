@@ -753,5 +753,16 @@
       "https://www.classaction.org/news/visa-mastercard-major-banks-facing-new-litigation-over-anticompetitive-merchant-credit-card-transaction-fees"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-10",
+    "title": "How Asana Cut LLM Spend 76× with GPT‑6 Sol, A Playbook for Product Teams",
+    "topic": "How Asana Slashed LLM Costs 76× with GPT‑6 Sol – The Playbook for Product Teams",
+    "urls": [
+      "https://openai.com/index/asana-browser-agent",
+      "https://openai.com/blog/gpt-6-sol-release",
+      "https://www.theinformation.com/articles/asana-llm-cost-cut"
+    ],
+    "published": false
   }
 ]
