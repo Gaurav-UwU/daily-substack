@@ -764,5 +764,16 @@
       "https://www.theinformation.com/articles/asana-llm-cost-cut"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-14",
+    "title": "Why AI Coding Agents Flood Repos With Code but Don’t Ship Features",
+    "topic": "Why AI Coding Agents Are Flooding Repos With Code—but Not Shipping Products",
+    "urls": [
+      "https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/",
+      "https://parsimony.lasu.dev/",
+      "https://news.ycombinator.com/item?id=50059096"
+    ],
+    "published": false
   }
 ]
