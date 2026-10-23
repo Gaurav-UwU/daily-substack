@@ -785,5 +785,16 @@
       "https://news.ycombinator.com/item?id=41012345"
     ],
     "published": false
+  },
+  {
+    "date": "2026-10-23",
+    "title": "Why Nvidia’s OpenShell Is the Real Moat for Enterprise AI Agent Fleets",
+    "topic": "Why Nvidia’s OpenShell Could Be the Missing Piece for Enterprise‑Scale AI Agent Fleets",
+    "urls": [
+      "https://github.com/NVIDIA/OpenShell",
+      "https://news.ycombinator.com/item?id=XXXXX",
+      "https://developer.nvidia.com/blog/openshell-private-runtime-for-autonomous-ai-agents"
+    ],
+    "published": true
   }
 ]
