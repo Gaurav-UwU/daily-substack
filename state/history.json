@@ -796,5 +796,16 @@
       "https://developer.nvidia.com/blog/openshell-private-runtime-for-autonomous-ai-agents"
     ],
     "published": true
+  },
+  {
+    "date": "2026-10-31",
+    "title": "Claude Code’s Silent Data Leak: How Background Agent Transcripts Turn Your Product Into a Data Faucet",
+    "topic": "The Silent Data Leak in Claude Code: Why Background Agent Transcripts Are a Hidden Product Risk",
+    "urls": [
+      "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "https://news.ycombinator.com/item?id=50314023",
+      "https://www.anthropic.com/docs/claude-code"
+    ],
+    "published": true
   }
 ]
