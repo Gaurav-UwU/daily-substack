@@ -807,5 +807,15 @@
       "https://www.anthropic.com/docs/claude-code"
     ],
     "published": true
+  },
+  {
+    "date": "2026-11-01",
+    "title": "How a Tiny AI Startup Walked Through Anthropic’s Walls in 12 Hours, The Security Moat You’re Ignoring",
+    "topic": "How an AI Startup Cracked Anthropic’s Walls in 12 Hours – The New Product Security Moat You’re Ignoring",
+    "urls": [
+      "https://www.indiatoday.in/technology/news/story/ai-startup-hacks-anthropic-in-12-hours-gains-access-to-employee-details-and-internal-messages-3025452-2026-10-26",
+      "https://news.ycombinator.com/item?id=41012345"
+    ],
+    "published": false
   }
 ]
