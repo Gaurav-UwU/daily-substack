@@ -817,5 +817,16 @@
       "https://news.ycombinator.com/item?id=41012345"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-02",
+    "title": "When AI Agent Swarms Hit Bureaucracy: The Minecraft Civilization Crash Exposes a New Product Risk",
+    "topic": "When AI Agent Swarms Hit Bureaucracy: What the Minecraft Civilization Crash Teaches Product Teams",
+    "urls": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+      "https://github.com/??/minecraft-agent-swarm-study",
+      "https://news.ycombinator.com/item?id=??"
+    ],
+    "published": false
   }
 ]
