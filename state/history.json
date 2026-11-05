@@ -838,5 +838,16 @@
       "https://news.ycombinator.com/item?id=50340088"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-05",
+    "title": "Google’s Gemini Is Mining Paid‑User Chats, The Trust Trade‑Off Behind the New Data Moat",
+    "topic": "Google’s Gemini Is Training on Paid‑User Chats – What It Means for Product Trust and Moats",
+    "urls": [
+      "https://news.ycombinator.com/item?id=50363461",
+      "https://ai.googleblog.com/2026/11/gemini-training-updates.html",
+      "https://techcrunch.com/2026/11/04/google-gemini-data-collection-subscribers/"
+    ],
+    "published": false
   }
 ]
