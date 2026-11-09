@@ -849,5 +849,16 @@
       "https://techcrunch.com/2026/11/04/google-gemini-data-collection-subscribers/"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Claude Code’s ‘Don’t Ask Again’ Leak Shows AI Coders Are Secret‑Harvesting Bugs",
+    "topic": "Claude Code’s ‘Don’t Ask Again’ Leak: How AI Coding Assistants Are Becoming Secret‑Harvesting Bugs",
+    "urls": [
+      "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "https://news.ycombinator.com/item?id=50422628",
+      "https://www.anthropic.com/product/claude-code"
+    ],
+    "published": false
   }
 ]
