@@ -860,5 +860,16 @@
       "https://www.anthropic.com/product/claude-code"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-18",
+    "title": "Microsoft’s Silent Data Moat: How Windows 11’s AI‑Coding Telemetry Gives It a Grip on the Future of Development",
+    "topic": "Windows 11 is silently building a developer data moat – the hidden product strategy behind AI‑coding telemetry",
+    "urls": [
+      "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+      "https://learn.microsoft.com/en-us/windows/privacy/windows-telemetry",
+      "https://www.theverge.com/2024/11/17/microsoft-windows-11-developer-telemetry-ai-coding-agents"
+    ],
+    "published": false
   }
 ]
