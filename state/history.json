@@ -871,5 +871,15 @@
       "https://www.theverge.com/2024/11/17/microsoft-windows-11-developer-telemetry-ai-coding-agents"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-19",
+    "title": "Why AI‑Generated Code Is Stalling Your Release Pipeline",
+    "topic": "When AI Writes Code Faster Than Humans Can Review It: The New Bottleneck and How Product Teams Should React",
+    "urls": [
+      "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+      "https://news.ycombinator.com/item?id=50536468"
+    ],
+    "published": true
   }
 ]
