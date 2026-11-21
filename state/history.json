@@ -891,5 +891,15 @@
       "https://news.ycombinator.com/item?id=50548660"
     ],
     "published": false
+  },
+  {
+    "date": "2026-11-21",
+    "title": "How OS‑Level Privacy Locks Are Becoming the Biggest Moat for AI Assistants",
+    "topic": "Why Mobile‑OS Privacy Locks Are the Next Moat for AI Agents",
+    "urls": [
+      "https://signal.org/blog/protecting-your-privacy/",
+      "https://news.ycombinator.com/item?id=50583761"
+    ],
+    "published": true
   }
 ]
