@@ -901,5 +901,16 @@
       "https://news.ycombinator.com/item?id=50583761"
     ],
     "published": true
+  },
+  {
+    "date": "2026-11-22",
+    "title": "How Europe’s AI‑Agent Law Becomes the Next Moat for Product Teams",
+    "topic": "Europe’s First AI‑Agent Law Is the New Moat for Product Teams",
+    "urls": [
+      "https://www.pandex.io",
+      "https://news.ycombinator.com/item?id=41012345",
+      "https://ec.europa.eu/info/law/browse/ai"
+    ],
+    "published": false
   }
 ]
